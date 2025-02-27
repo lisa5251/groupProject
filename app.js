@@ -28,10 +28,8 @@ const cars = [
         image: 'https://via.placeholder.com/250x150?text=Audi+A4'
     }
 ];
-
 let cart = [];
 
-// Function to display cars
 function displayCars() {
     const carList = document.querySelector('.car-list');
     carList.innerHTML = ''; // Clear the existing car list
@@ -49,15 +47,11 @@ function displayCars() {
         carList.appendChild(carCard);
     });
 }
-
-// Function to add car to cart
 function addToCart(carId) {
     const car = cars.find(c => c.id === carId);
     cart.push(car);
     updateCart();
 }
-
-// Function to update the cart count and total price
 function updateCart() {
     const cartCount = document.getElementById('cart-count');
     const cartTotal = document.getElementById('cart-total');
@@ -66,6 +60,4 @@ function updateCart() {
     const totalPrice = cart.reduce((total, car) => total + car.price, 0);
     cartTotal.textContent = totalPrice.toFixed(2);
 }
-
-// Initialize the app by displaying cars
 displayCars();
